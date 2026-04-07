@@ -4,28 +4,28 @@ import useInView from "@/hooks/use-in-view";
 const features = [
   {
     icon: Mic,
-    title: "Local Whisper Transcription",
-    description: "Runs OpenAI's Whisper locally — no cloud, no latency, no data leaving your machine.",
+    title: "Local Whisper",
+    description: "Runs OpenAI's Whisper on your machine. No cloud calls, no latency.",
   },
   {
     icon: Sparkles,
     title: "AI Cleanup",
-    description: "Automatically fixes grammar, removes filler words, and formats your text cleanly.",
+    description: "Fixes grammar, removes fillers, and formats text automatically.",
   },
   {
     icon: Keyboard,
-    title: "Global Hotkey Dictation",
-    description: "Press a shortcut from anywhere — FlowType captures and transcribes instantly.",
+    title: "Global Hotkey",
+    description: "Trigger dictation from anywhere with a single shortcut.",
   },
   {
     icon: BookOpen,
-    title: "Vocabulary & Modes",
-    description: "Custom vocabularies and transcription modes tuned for your workflow.",
+    title: "Custom Modes",
+    description: "Vocabularies and modes tailored to how you work.",
   },
   {
     icon: ShieldCheck,
-    title: "Privacy-First",
-    description: "Everything runs locally. Your voice data never touches an external server.",
+    title: "Private by Default",
+    description: "Your voice never leaves your computer. Period.",
   },
 ];
 
@@ -33,28 +33,35 @@ const Features = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="features" ref={ref} className="py-20 md:py-28">
-      <div
-        className={`container transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-      >
-        <h2 className="text-center text-2xl font-bold tracking-tight md:text-3xl">
+    <section
+      id="features"
+      ref={ref}
+      className="py-16 md:py-24"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(24px)",
+        transition: "opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1)",
+      }}
+    >
+      <div className="container">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.15em] text-primary">
           Features
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-center text-sm text-muted-foreground">
-          Everything you need for fast, private, AI-powered dictation.
         </p>
+        <h2 className="mt-3 text-center text-2xl font-bold tracking-tight md:text-3xl">
+          Built for speed and privacy
+        </h2>
 
-        <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f) => (
+        <div className="mx-auto mt-14 grid max-w-4xl gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((f, i) => (
             <div
               key={f.title}
-              className="group rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary/40 hover:bg-surface-elevated"
+              className={`bg-surface p-7 transition-colors duration-200 hover:bg-surface-elevated ${
+                i >= 3 ? "lg:col-span-1" : ""
+              }`}
             >
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <f.icon className="h-5 w-5" />
-              </div>
-              <h3 className="font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <f.icon className="mb-4 h-5 w-5 text-primary/80" strokeWidth={1.5} />
+              <h3 className="text-[15px] font-semibold leading-snug">{f.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">
                 {f.description}
               </p>
             </div>
