@@ -5,26 +5,28 @@ const Demo = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="demo" ref={ref} className="py-20 md:py-28">
-      <div
-        className={`container transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-      >
-        <h2 className="text-center text-2xl font-bold tracking-tight md:text-3xl">
-          See it in action
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-center text-sm text-muted-foreground">
-          Press a key, speak, get clean text — that's the entire workflow.
-        </p>
-
-        <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-xl border border-border bg-surface">
-          <div className="relative flex aspect-video items-center justify-center bg-surface-elevated">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20 text-primary transition-transform hover:scale-110">
-              <Play className="h-7 w-7 fill-current" />
+    <section
+      id="demo"
+      ref={ref}
+      className="py-16 md:py-24"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(24px)",
+        transition: "opacity 0.7s cubic-bezier(.16,1,.3,1) 0.1s, transform 0.7s cubic-bezier(.16,1,.3,1) 0.1s",
+      }}
+    >
+      <div className="container">
+        <div className="mx-auto max-w-2xl">
+          <div className="overflow-hidden rounded-2xl border border-border/60 bg-surface glow-primary">
+            <div className="relative flex aspect-video cursor-pointer items-center justify-center bg-gradient-to-br from-surface to-surface-elevated transition-colors duration-300 hover:from-surface-elevated hover:to-surface">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary backdrop-blur-sm transition-transform duration-300 hover:scale-105">
+                <Play className="ml-0.5 h-5 w-5 fill-current" />
+              </div>
             </div>
-            <p className="absolute bottom-4 text-xs text-muted-foreground">
-              Video demo coming soon
-            </p>
           </div>
+          <p className="mt-4 text-center text-[13px] text-muted-foreground">
+            See FlowType in action — press, speak, paste.
+          </p>
         </div>
       </div>
     </section>
