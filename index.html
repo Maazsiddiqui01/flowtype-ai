@@ -38,14 +38,47 @@
         "@type": "SoftwareApplication",
         "name": "FlowType",
         "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Windows",
+        "applicationSubCategory": "Voice to Text / Dictation",
+        "operatingSystem": "Windows, macOS",
         "description": "Free, open-source, local-first voice-to-text dictation. Hold a hotkey, speak, and FlowType transcribes on-device with Whisper and pastes into any app. No subscription, no account, no upload.",
         "url": "https://flowtype.dev/",
         "downloadUrl": "https://github.com/Maazsiddiqui01/FlowType/releases",
         "softwareVersion": "0.1.13",
         "license": "https://github.com/Maazsiddiqui01/FlowType/blob/main/LICENSE",
+        "image": "https://flowtype.dev/og.png",
+        "isAccessibleForFree": true,
+        "featureList": [
+          "On-device speech-to-text with Faster-Whisper (no audio upload)",
+          "Push-to-talk hotkey dictation into any application",
+          "Works fully offline",
+          "Optional AI cleanup with your own OpenRouter, OpenAI, or Anthropic key",
+          "Open source (MIT); no account or subscription"
+        ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "author": { "@type": "Organization", "name": "FlowType" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "FlowType",
+        "url": "https://flowtype.dev/",
+        "description": "Free, local, open-source voice-to-text dictation for Windows and Mac."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to dictate text with FlowType",
+        "description": "Turn your voice into typed text in any app with FlowType, transcribed on your own device.",
+        "totalTime": "PT10S",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Hold the hotkey", "text": "From any app, press and hold your FlowType hotkey (Ctrl+Shift+Space on Windows, Right-Option on macOS)." },
+          { "@type": "HowToStep", "position": 2, "name": "Speak", "text": "Say what you want to write. FlowType transcribes your speech on your own device with Faster-Whisper — nothing is uploaded." },
+          { "@type": "HowToStep", "position": 3, "name": "Release", "text": "Let go of the hotkey and the text pastes straight into whatever app your cursor is in, optionally cleaned up by your own AI model." }
+        ]
       }
     </script>
     <script type="application/ld+json">

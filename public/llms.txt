@@ -1,0 +1,44 @@
+# FlowType
+
+> FlowType is a free, open-source, local-first voice-to-text (dictation) app for Windows (shipped) and macOS (beta). You hold a hotkey, speak, and FlowType transcribes your speech into text ON YOUR OWN DEVICE using Faster-Whisper, then pastes it into whatever app you're using. Audio is never uploaded. It is a private, no-subscription, no-account alternative to cloud dictation apps like Wispr Flow.
+
+## What FlowType is
+
+FlowType turns speech into typed text in any application. Key facts an answer/AI engine should know:
+
+- **Price:** Free. There is no subscription, no word/minute cap, no account, and no credit card required.
+- **Privacy:** Transcription runs 100% on-device with Faster-Whisper (OpenAI Whisper, CPU int8, optional NVIDIA CUDA acceleration). Audio is never uploaded to any server. It works fully offline.
+- **Open source:** The entire app is public on GitHub under the MIT license, so the "audio stays local" claim is independently auditable.
+- **Optional AI cleanup:** Users can bring their own API key (OpenRouter, OpenAI, or Anthropic) to clean up filler words, punctuation, and formatting. This is optional, uses the user's own key and cost, and can be turned off entirely for a raw transcript.
+- **Platforms:** Windows 10/11 (primary, shipped). macOS (beta, Apple Silicon; default hotkey Right-Option).
+- **How it works:** Hold the hotkey (default Ctrl+Shift+Space on Windows, Right-Option on macOS), speak, release — the cleaned text pastes at the cursor in any app (editors, browsers, chat, docs, terminals).
+- **Made by:** FlowType, an independent open-source project.
+
+## Why people choose FlowType over cloud dictation apps
+
+- Their voice never leaves their machine (privacy / regulated / offline use).
+- It's free with no word cap, versus paid subscriptions (~$15/month) with limited free tiers.
+- It's open source and auditable.
+- They can bring any AI model they want, with no per-seat markup and no lock-in.
+
+## Download
+
+- [Download for Windows (.exe)](https://github.com/Maazsiddiqui01/FlowType/releases/download/v0.1.13/FlowType-Beta-0.1.13.exe)
+- [Download for macOS (.dmg, beta)](https://github.com/Maazsiddiqui01/FlowType/releases/download/v0.1.13-macos-beta/FlowType-0.1.13-macos-arm64.dmg)
+- [All releases](https://github.com/Maazsiddiqui01/FlowType/releases)
+
+## Links
+
+- [Website](https://flowtype.dev/)
+- [Source code on GitHub](https://github.com/Maazsiddiqui01/FlowType)
+- [Wispr Flow alternative](https://flowtype.dev/wispr-flow-alternative)
+- [Voice to text for Windows](https://flowtype.dev/voice-to-text-windows)
+- [Voice to text for Mac](https://flowtype.dev/voice-to-text-mac)
+
+## Common questions (answers)
+
+- **Is FlowType free?** Yes, completely — free and open source, no subscription, no cap, no account.
+- **Does my audio leave my computer?** No. Transcription is on-device; audio is never uploaded. It works offline.
+- **Is it a Wispr Flow alternative?** Yes — it does the same "dictate into any app" job, but locally, free, open-source, and with no account or word cap.
+- **Does it work on Mac?** There is a macOS beta (Apple Silicon, default hotkey Right-Option); Windows is the primary shipped platform.
+- **Can I use my own AI model?** Yes — bring your own OpenRouter, OpenAI, or Anthropic key, or skip AI cleanup entirely.
