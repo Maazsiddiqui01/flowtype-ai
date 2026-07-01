@@ -25,10 +25,10 @@ const COLS = [
   {
     title: "Use cases",
     links: [
-      { label: "Voice to text for Windows", href: "#download" },
-      { label: "Voice to text for Mac", href: "#download" },
-      { label: "Local speech to text", href: "#privacy" },
-      { label: "Wispr Flow alternative", href: "#compare" },
+      { label: "Voice to text for Windows", href: "/voice-to-text-windows" },
+      { label: "Voice to text for Mac", href: "/voice-to-text-mac" },
+      { label: "Wispr Flow alternative", href: "/wispr-flow-alternative" },
+      { label: "Local speech to text", href: "/#privacy" },
     ],
   },
 ];
