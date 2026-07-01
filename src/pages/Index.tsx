@@ -10,6 +10,15 @@ import { OpenSource } from "@/components/landing/OpenSource";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
+import { FAQS } from "@/components/landing/FAQ";
+import {
+  Seo,
+  softwareAppLd,
+  websiteLd,
+  howToLd,
+  organizationLd,
+  faqLd,
+} from "@/components/Seo";
 import { DOWNLOAD } from "@/lib/site";
 import { useOS } from "@/hooks/useOS";
 
@@ -18,6 +27,18 @@ const Index = () => {
   const primary = os === "mac" ? DOWNLOAD.mac : DOWNLOAD.windows;
   return (
     <div className="min-h-screen bg-canvas text-foreground">
+      <Seo
+        title="FlowType — Local Voice to Text Dictation for Windows & Mac"
+        description="Hold a hotkey, speak, and FlowType types it anywhere. On-device Whisper transcription — your audio never leaves your machine. Free, private, open source. The Wispr Flow alternative you can actually own."
+        path="/"
+        jsonLd={[
+          softwareAppLd("Windows, macOS"),
+          websiteLd(),
+          howToLd(),
+          organizationLd(),
+          faqLd(FAQS),
+        ]}
+      />
       <Nav />
       <main>
         <Hero />

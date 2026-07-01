@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const SITE = "https://flowtype.dev";
 const OG_IMAGE = `${SITE}/og.png`;
+const GH = "https://github.com/Maazsiddiqui01/FlowType";
 
 export function Seo({
   title,
@@ -21,6 +22,7 @@ export function Seo({
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="FlowType" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -38,18 +40,76 @@ export function Seo({
   );
 }
 
-export const softwareAppLd = (os = "Windows") => ({
+export const softwareAppLd = (os = "Windows, macOS") => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "FlowType",
   applicationCategory: "UtilitiesApplication",
+  applicationSubCategory: "Voice to Text / Dictation",
   operatingSystem: os,
   description:
-    "Free, open-source, local-first voice-to-text dictation. Transcribes on-device with Whisper and pastes into any app. No subscription, no account, no upload.",
+    "Free, open-source, local-first voice-to-text dictation. Hold a hotkey, speak, and FlowType transcribes on-device with Whisper and pastes into any app. No subscription, no account, no upload.",
   url: SITE + "/",
-  downloadUrl: "https://github.com/Maazsiddiqui01/FlowType/releases",
+  downloadUrl: GH + "/releases",
+  softwareVersion: "0.1.13",
+  license: GH + "/blob/main/LICENSE",
+  image: OG_IMAGE,
+  isAccessibleForFree: true,
+  featureList: [
+    "On-device speech-to-text with Faster-Whisper (no audio upload)",
+    "Push-to-talk hotkey dictation into any application",
+    "Works fully offline",
+    "Optional AI cleanup with your own OpenRouter, OpenAI, or Anthropic key",
+    "Open source (MIT); no account or subscription",
+  ],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "FlowType" },
+});
+
+export const websiteLd = () => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "FlowType",
+  url: SITE + "/",
+  description:
+    "Free, local, open-source voice-to-text dictation for Windows and Mac.",
+});
+
+export const howToLd = () => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to dictate text with FlowType",
+  description:
+    "Turn your voice into typed text in any app with FlowType, transcribed on your own device.",
+  totalTime: "PT10S",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Hold the hotkey",
+      text: "From any app, press and hold your FlowType hotkey (Ctrl+Shift+Space on Windows, Right-Option on macOS).",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Speak",
+      text: "Say what you want to write. FlowType transcribes your speech on your own device with Faster-Whisper — nothing is uploaded.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Release",
+      text: "Let go of the hotkey and the text pastes straight into whatever app your cursor is in, optionally cleaned up by your own AI model.",
+    },
+  ],
+});
+
+export const organizationLd = () => ({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "FlowType",
+  url: SITE + "/",
+  sameAs: [GH],
 });
 
 export const faqLd = (faqs: { q: string; a: string }[]) => ({

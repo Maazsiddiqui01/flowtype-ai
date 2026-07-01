@@ -27,12 +27,15 @@ jobs:
         with:
           node-version: "20"
       - run: npm ci
-      - name: Build
+      - name: Install Playwright Chromium (for prerender)
+        run: npx playwright install --with-deps chromium
+      - name: Build & prerender
         env:
           VITE_BASE: /flowtype-ai/
         run: |
           npm run build
-          cp dist/index.html dist/404.html   # SPA fallback for client-side routes
+          node scripts/prerender.mjs             # bake per-route static HTML (SEO/AEO/GEO + 200 status)
+          cp dist/index.html dist/404.html       # SPA fallback for any unknown route
           touch dist/.nojekyll
       - uses: actions/configure-pages@v5
         with:

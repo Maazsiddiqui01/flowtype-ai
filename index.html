@@ -4,109 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080a" />
-
-    <title>FlowType — Local Voice to Text Dictation for Windows</title>
-    <meta
-      name="description"
-      content="Hold a hotkey, speak, and FlowType types it anywhere. On-device Whisper transcription — your audio never leaves your PC. Free, private, open source, bring your own AI."
-    />
     <meta name="author" content="FlowType" />
-    <link rel="canonical" href="https://flowtype.dev/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="FlowType" />
-    <meta property="og:url" content="https://flowtype.dev/" />
-    <meta property="og:title" content="FlowType — Free, local voice-to-text for Windows & Mac" />
-    <meta
-      property="og:description"
-      content="Speak, and it types — anywhere. Transcribed on your own machine with Whisper. No subscription, no account, no upload. The open-source Wispr Flow alternative."
-    />
-    <meta property="og:image" content="https://flowtype.dev/og.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FlowType — Free, local voice-to-text for Windows & Mac" />
-    <meta
-      name="twitter:description"
-      content="Speak, and it types — anywhere. On-device Whisper transcription. Free, private, open source. The Wispr Flow alternative that keeps your voice on your device."
-    />
-    <meta name="twitter:image" content="https://flowtype.dev/og.png" />
-
-    <!-- Structured data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "FlowType",
-        "applicationCategory": "UtilitiesApplication",
-        "applicationSubCategory": "Voice to Text / Dictation",
-        "operatingSystem": "Windows, macOS",
-        "description": "Free, open-source, local-first voice-to-text dictation. Hold a hotkey, speak, and FlowType transcribes on-device with Whisper and pastes into any app. No subscription, no account, no upload.",
-        "url": "https://flowtype.dev/",
-        "downloadUrl": "https://github.com/Maazsiddiqui01/FlowType/releases",
-        "softwareVersion": "0.1.13",
-        "license": "https://github.com/Maazsiddiqui01/FlowType/blob/main/LICENSE",
-        "image": "https://flowtype.dev/og.png",
-        "isAccessibleForFree": true,
-        "featureList": [
-          "On-device speech-to-text with Faster-Whisper (no audio upload)",
-          "Push-to-talk hotkey dictation into any application",
-          "Works fully offline",
-          "Optional AI cleanup with your own OpenRouter, OpenAI, or Anthropic key",
-          "Open source (MIT); no account or subscription"
-        ],
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "author": { "@type": "Organization", "name": "FlowType" }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "FlowType",
-        "url": "https://flowtype.dev/",
-        "description": "Free, local, open-source voice-to-text dictation for Windows and Mac."
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "How to dictate text with FlowType",
-        "description": "Turn your voice into typed text in any app with FlowType, transcribed on your own device.",
-        "totalTime": "PT10S",
-        "step": [
-          { "@type": "HowToStep", "position": 1, "name": "Hold the hotkey", "text": "From any app, press and hold your FlowType hotkey (Ctrl+Shift+Space on Windows, Right-Option on macOS)." },
-          { "@type": "HowToStep", "position": 2, "name": "Speak", "text": "Say what you want to write. FlowType transcribes your speech on your own device with Faster-Whisper — nothing is uploaded." },
-          { "@type": "HowToStep", "position": 3, "name": "Release", "text": "Let go of the hotkey and the text pastes straight into whatever app your cursor is in, optionally cleaned up by your own AI model." }
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "FlowType",
-        "url": "https://flowtype.dev/",
-        "sameAs": ["https://github.com/Maazsiddiqui01/FlowType"]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "What is FlowType?", "acceptedAnswer": { "@type": "Answer", "text": "FlowType is a free, open-source voice-to-text app (also called speech-to-text or dictation) for Windows and Mac. You hold a hotkey, speak, and it transcribes your speech into text on your own device with Whisper, then pastes it into whatever app you're using. Nothing is uploaded — transcription is fully local — and there's no subscription and no account." } },
-          { "@type": "Question", "name": "Is FlowType free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely. FlowType is free and open source. There's no subscription, no word or minute cap, no account, and no credit card. Optional AI cleanup uses an API key you bring, billed by your provider at their rates — never through us." } },
-          { "@type": "Question", "name": "Does my audio leave my computer?", "acceptedAnswer": { "@type": "Answer", "text": "No. FlowType transcribes your voice on-device with Faster-Whisper. Audio is never uploaded for transcription, so there's nothing to leak or log. It works fully offline." } },
-          { "@type": "Question", "name": "Is FlowType a good Wispr Flow alternative?", "acceptedAnswer": { "@type": "Answer", "text": "It does the same 'dictate into any app' job as Wispr Flow, but locally, free, open-source, and with no account or word cap. If privacy, cost, and ownership matter more to you than cloud features, FlowType is the stronger fit." } },
-          { "@type": "Question", "name": "Does FlowType work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because transcription runs on your own machine, FlowType works with no internet connection. Optional AI cleanup is the only feature that needs a connection, and only if you enable it." } },
-          { "@type": "Question", "name": "Does FlowType work on Windows?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — Windows is the primary, shipped platform. FlowType runs Faster-Whisper locally (CPU int8, with CUDA acceleration when available) and pastes into any app." } },
-          { "@type": "Question", "name": "Does FlowType work on Mac?", "acceptedAnswer": { "@type": "Answer", "text": "There's a macOS beta you can download today (default hotkey: Right-Option). It's actively improving — try it and file issues. For production-critical use, know it's still in beta." } },
-          { "@type": "Question", "name": "Can I bring my own AI model?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Connect your own OpenRouter, OpenAI, or Anthropic key to clean up transcripts and pick any model — you're never locked to one provider, and you pay only your own usage. You can also skip AI entirely and keep the raw transcript." } },
-          { "@type": "Question", "name": "Is it really private if it's open source?", "acceptedAnswer": { "@type": "Answer", "text": "That's why it's private in a way you can trust. Open source means the 'your audio stays local' claim is verifiable — anyone can audit the code. Your API keys are encrypted at rest, and FlowType never proxies your requests." } }
-        ]
-      }
-    </script>
+    <!-- Per-route title, description, canonical, Open Graph, and structured data are
+         injected by react-helmet-async (src/components/Seo.tsx) and baked into static
+         HTML at build time by scripts/prerender.mjs. Keep this head minimal so nothing
+         here duplicates or overrides the per-route tags. -->
   </head>
 
   <body>
