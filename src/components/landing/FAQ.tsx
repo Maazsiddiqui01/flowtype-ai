@@ -8,6 +8,10 @@ import { Section, Eyebrow, Reveal } from "./primitives";
 
 export const FAQS: { q: string; a: string }[] = [
   {
+    q: "What is FlowType?",
+    a: "FlowType is a free, open-source voice-to-text app (also called speech-to-text or dictation) for Windows and Mac. You hold a hotkey, speak, and it transcribes your speech into text on your own device with Whisper, then pastes it into whatever app you're using. Nothing is uploaded — transcription is fully local — and there's no subscription and no account.",
+  },
+  {
     q: "Is FlowType free?",
     a: "Yes — completely. FlowType is free and open source. There's no subscription, no word or minute cap, no account, and no credit card. Optional AI cleanup uses an API key you bring, billed by your provider at their rates — never through us.",
   },

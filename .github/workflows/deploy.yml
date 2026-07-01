@@ -1,14 +1,13 @@
 name: Deploy site to GitHub Pages
 
-# Auto-deploys the marketing site to GitHub Pages on every push to main, so there is a
-# reliable live URL independent of Lovable's publish button.
+# Deploys the marketing site to GitHub Pages.
+# NOTE: GitHub Pages requires the repo to be PUBLIC on the free plan (or a paid plan for
+# private). Once that's the case, enable Pages (Settings > Pages > Source: GitHub Actions)
+# and this runs. It's manual (workflow_dispatch) for now so it doesn't fail on every push.
 # Live at: https://maazsiddiqui01.github.io/flowtype-ai/
-# To move to the production domain (flowtype.dev): set VITE_BASE=/ below, add a CNAME, and
-# point DNS. All canonical/OG/sitemap URLs already target flowtype.dev.
+# For the production domain (flowtype.dev): set VITE_BASE=/ below + add a CNAME + point DNS.
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch: {}
 
 permissions:
