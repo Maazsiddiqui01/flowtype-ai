@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { GITHUB_URL, NAV_LINKS } from "@/lib/site";
-import { GitHubGlyph } from "./primitives";
+import { GitHubGlyph, SmartLink } from "./primitives";
 import { useOS } from "@/hooks/useOS";
 import { DOWNLOAD } from "@/lib/site";
 
@@ -24,20 +25,20 @@ export function Nav() {
       )}
     >
       <nav className="mx-auto flex h-16 max-w-container items-center justify-between px-6">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link to="/" className="flex items-center gap-2.5">
           <Logo />
           <span className="text-[17px] font-semibold tracking-tight text-ink">FlowType</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 md:flex">
           {NAV_LINKS.map((l) => (
-            <a
+            <SmartLink
               key={l.href}
               href={l.href}
               className="text-[14px] text-ink-body transition-colors hover:text-ink"
             >
               {l.label}
-            </a>
+            </SmartLink>
           ))}
         </div>
 

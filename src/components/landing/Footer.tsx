@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Logo } from "./Nav";
-import { GitHubGlyph } from "./primitives";
+import { GitHubGlyph, SmartLink } from "./primitives";
 import { DOWNLOAD, GITHUB_URL, RELEASES_URL, ISSUES_URL, LICENSE_URL } from "@/lib/site";
 
 const COLS = [
@@ -39,10 +40,10 @@ export function Footer() {
       <div className="mx-auto max-w-container px-6 py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <a href="#top" className="flex items-center gap-2.5">
+            <Link to="/" className="flex items-center gap-2.5">
               <Logo />
               <span className="text-[16px] font-semibold text-ink">FlowType</span>
-            </a>
+            </Link>
             <p className="mt-3 max-w-xs text-[13.5px] leading-relaxed text-ink-muted">
               Local voice-to-text. Hold a hotkey, speak, and it types — on your machine, never the cloud.
             </p>
@@ -64,12 +65,12 @@ export function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {c.links.map((l) => (
                   <li key={l.label}>
-                    <a
+                    <SmartLink
                       href={l.href}
                       className="text-[13.5px] text-ink-body transition-colors hover:text-ink"
                     >
                       {l.label}
-                    </a>
+                    </SmartLink>
                   </li>
                 ))}
               </ul>

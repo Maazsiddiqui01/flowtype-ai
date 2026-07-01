@@ -1,8 +1,39 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DOWNLOAD, RELEASES_URL } from "@/lib/site";
 import { useOS } from "@/hooks/useOS";
+
+/* ── SmartLink ────────────────────────────────────────────────────────────────
+ * Routes internal navigation through react-router <Link> so hrefs stay correct
+ * on both the GitHub Pages subpath (/flowtype-ai/) and the root production domain
+ * (basename is honored). External URLs render as a plain anchor; a bare "#section"
+ * is treated as a homepage anchor ("/#section") so it works from any page. */
+export function SmartLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  const isExternal = /^(https?:|mailto:|tel:)/.test(href);
+  if (isExternal) {
+    return (
+      <a href={href} className={className} target="_blank" rel="noreferrer">
+        {children}
+      </a>
+    );
+  }
+  const to = href.startsWith("#") ? `/${href}` : href;
+  return (
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
+}
 
 /* ── Reveal on scroll ─────────────────────────────────────────────────────── */
 export function Reveal({
