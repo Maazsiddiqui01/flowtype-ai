@@ -104,6 +104,33 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
+/* ── Prose (unique long-form content column) ──────────────────────────────────
+ * Used on landing sub-pages to carry page-specific, intent-matched copy so each
+ * page has substantial unique content (not just shared sections). */
+export function Prose({
+  id,
+  eyebrow,
+  title,
+  children,
+}: {
+  id?: string;
+  eyebrow?: ReactNode;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <Section id={id}>
+      <Reveal className="mx-auto max-w-3xl">
+        {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
+        <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-[28px]">{title}</h2>
+        <div className="mt-6 space-y-4 text-[15.5px] leading-relaxed text-ink-body [&_strong]:font-semibold [&_strong]:text-ink">
+          {children}
+        </div>
+      </Reveal>
+    </Section>
+  );
+}
+
 /* ── Brand glyphs ─────────────────────────────────────────────────────────── */
 export function WindowsGlyph({ className }: { className?: string }) {
   return (

@@ -5,7 +5,7 @@ import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Privacy } from "@/components/landing/Privacy";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
-import { Section, Reveal, Card, WindowsGlyph } from "@/components/landing/primitives";
+import { Section, Reveal, Card, Prose, WindowsGlyph } from "@/components/landing/primitives";
 import { Seo, softwareAppLd, faqLd, breadcrumbLd } from "@/components/Seo";
 import { Cpu, WifiOff, MousePointerClick } from "lucide-react";
 
@@ -60,6 +60,31 @@ export default function VoiceToTextWindows() {
             ))}
           </div>
         </Section>
+
+        <Prose
+          eyebrow="Windows dictation"
+          title="Free voice to text for Windows — without the cloud"
+        >
+          <p>
+            FlowType is a free, open-source voice-to-text app for Windows 10 and 11. Hold{" "}
+            <strong>Ctrl+Shift+Space</strong>, speak, and let go — your words appear wherever the
+            cursor is. Transcription runs on your PC with Faster-Whisper, so it keeps working on a
+            plane, behind a corporate firewall, or anywhere with no connection at all.
+          </p>
+          <p>
+            Unlike Windows' built-in Voice Typing, FlowType stays fully local and behaves the same
+            in every app — Word, Outlook, Chrome, Slack, Notion, VS Code, even a terminal. There's
+            no Microsoft account, no per-app quirks, and <strong>no word or minute limit</strong>. On
+            an NVIDIA GPU it uses CUDA for near-instant transcripts; on any other machine it runs an
+            efficient CPU int8 model.
+          </p>
+          <p>
+            Want cleaner output? Connect your own OpenRouter, OpenAI, or Anthropic key and FlowType
+            will tidy filler words and punctuation with the model you pick — billed by your provider,
+            never through us. Prefer the exact words? Turn AI off and keep the raw transcript. Either
+            way, <strong>your audio never leaves the machine</strong>.
+          </p>
+        </Prose>
 
         <HowItWorks />
         <Privacy />

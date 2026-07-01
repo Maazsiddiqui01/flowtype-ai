@@ -4,7 +4,7 @@ import { PageHero } from "@/components/landing/PageHero";
 import { Privacy } from "@/components/landing/Privacy";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
-import { Section, Reveal, Card, AppleGlyph } from "@/components/landing/primitives";
+import { Section, Reveal, Card, Prose, AppleGlyph } from "@/components/landing/primitives";
 import { Seo, softwareAppLd, faqLd, breadcrumbLd } from "@/components/Seo";
 import { FlaskConical, Cpu, MessageSquare } from "lucide-react";
 
@@ -59,6 +59,30 @@ export default function VoiceToTextMac() {
             ))}
           </div>
         </Section>
+
+        <Prose
+          eyebrow="Mac dictation"
+          title="Voice to text for Mac, running on Apple Silicon"
+        >
+          <p>
+            FlowType's macOS build brings the same local dictation to the Mac: hold{" "}
+            <strong>Right-Option</strong>, speak, and it types into any app while Whisper transcribes
+            on your own machine. It's tuned for Apple Silicon and needs no internet connection to
+            work.
+          </p>
+          <p>
+            The Mac app is in <strong>beta</strong> — it works today and gets better with every
+            release, but expect the occasional rough edge, so keep that in mind for mission-critical
+            work. Because FlowType is open source, you can follow the progress, file issues, and see
+            exactly what runs on your computer.
+          </p>
+          <p>
+            Compared with macOS's built-in Dictation, FlowType gives you one consistent hotkey across
+            every app, transcripts that stay <strong>on-device</strong>, and optional cleanup with
+            your own AI model (OpenRouter, OpenAI, or Anthropic). No account, no subscription, no word
+            cap.
+          </p>
+        </Prose>
 
         <Privacy />
         <FAQ />

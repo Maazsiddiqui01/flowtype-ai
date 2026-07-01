@@ -4,7 +4,7 @@ import { PageHero } from "@/components/landing/PageHero";
 import { Compare } from "@/components/landing/Compare";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
-import { Section, Eyebrow, Reveal, Card } from "@/components/landing/primitives";
+import { Section, Eyebrow, Reveal, Card, Prose } from "@/components/landing/primitives";
 import { Seo, softwareAppLd, faqLd, breadcrumbLd } from "@/components/Seo";
 import { Lock, Wallet, Github } from "lucide-react";
 
@@ -72,6 +72,31 @@ export default function WisprFlowAlternative() {
             ))}
           </div>
         </Section>
+
+        <Prose
+          eyebrow="The honest take"
+          title="FlowType vs Wispr Flow: which should you pick?"
+        >
+          <p>
+            Both apps do the same core job — hold a hotkey, speak, and your words land in whatever
+            app you're using. The real difference is <strong>where your voice goes</strong> and what
+            you trade for convenience. Wispr Flow is a polished, hosted product with a subscription;
+            FlowType is a free, open-source app that runs Whisper on your own machine.
+          </p>
+          <p>
+            <strong>Wispr Flow may be the better choice</strong> if you want a fully managed service
+            with a team behind it and cloud sync across devices, and you're comfortable sending audio
+            to their servers and paying monthly. That's a reasonable trade — the cloud experience is
+            refined and there's nothing to set up.
+          </p>
+          <p>
+            <strong>FlowType is the stronger fit</strong> when privacy, cost, and ownership come
+            first. Your audio never leaves the device, there's no subscription and no word cap, and
+            the code is open on GitHub for anyone to audit. You can bring your own AI model for
+            cleanup and pay only your own usage — or skip AI entirely. On Windows it's shipped and
+            stable; on Mac it's an honest, improving beta.
+          </p>
+        </Prose>
 
         <Compare />
         <FAQ />
