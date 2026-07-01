@@ -35,6 +35,12 @@ for (const route of ROUTES) {
   await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
   await page.waitForSelector("h1", { timeout: 15000 }).catch(() => {});
   await page.waitForTimeout(400); // let helmet flush the <head>
+  // Reveal all scroll-animated (.reveal) sections so the captured static HTML shows
+  // full content for crawlers that render CSS without executing the SPA's scroll observer.
+  await page.evaluate(() =>
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"))
+  );
+  await page.waitForTimeout(120);
   const html = "<!doctype html>\n" + (await page.content()).replace(/^<!DOCTYPE html>/i, "");
   // Flat files (foo.html) rather than foo/index.html so GitHub Pages serves the
   // extensionless URL directly with a 200 — no trailing-slash 301 hop, and the served

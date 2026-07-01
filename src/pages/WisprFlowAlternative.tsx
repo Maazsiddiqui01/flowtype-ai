@@ -35,7 +35,7 @@ export default function WisprFlowAlternative() {
         path="/wispr-flow-alternative"
         jsonLd={[
           softwareAppLd("Windows"),
-          faqLd(FAQS.slice(0, 6)),
+          faqLd(FAQS),
           breadcrumbLd([
             { name: "FlowType", path: "/" },
             { name: "Wispr Flow alternative", path: "/wispr-flow-alternative" },

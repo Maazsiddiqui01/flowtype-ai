@@ -23,7 +23,7 @@ export default function VoiceToTextMac() {
         path="/voice-to-text-mac"
         jsonLd={[
           softwareAppLd("macOS"),
-          faqLd(FAQS.slice(0, 6)),
+          faqLd(FAQS),
           breadcrumbLd([
             { name: "FlowType", path: "/" },
             { name: "Voice to text for Mac", path: "/voice-to-text-mac" },

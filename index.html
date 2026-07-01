@@ -7,6 +7,13 @@
     <meta name="author" content="FlowType" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Fallback: if scripts don't run, scroll-reveal sections stay visible. -->
+    <noscript>
+      <style>
+        .reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+      </style>
+    </noscript>
+
     <!-- Per-route title, description, canonical, Open Graph, and structured data are
          injected by react-helmet-async (src/components/Seo.tsx) and baked into static
          HTML at build time by scripts/prerender.mjs. Keep this head minimal so nothing

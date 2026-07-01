@@ -24,7 +24,7 @@ export default function VoiceToTextWindows() {
         path="/voice-to-text-windows"
         jsonLd={[
           softwareAppLd("Windows"),
-          faqLd(FAQS.slice(0, 6)),
+          faqLd(FAQS),
           breadcrumbLd([
             { name: "FlowType", path: "/" },
             { name: "Voice to text for Windows", path: "/voice-to-text-windows" },
