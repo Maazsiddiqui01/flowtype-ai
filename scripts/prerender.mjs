@@ -36,8 +36,11 @@ for (const route of ROUTES) {
   await page.waitForSelector("h1", { timeout: 15000 }).catch(() => {});
   await page.waitForTimeout(400); // let helmet flush the <head>
   const html = "<!doctype html>\n" + (await page.content()).replace(/^<!DOCTYPE html>/i, "");
+  // Flat files (foo.html) rather than foo/index.html so GitHub Pages serves the
+  // extensionless URL directly with a 200 — no trailing-slash 301 hop, and the served
+  // URL matches the canonical exactly.
   const outFile =
-    route === "/" ? "dist/index.html" : join("dist", route.replace(/^\//, ""), "index.html");
+    route === "/" ? "dist/index.html" : join("dist", route.replace(/^\//, "") + ".html");
   mkdirSync(dirname(outFile), { recursive: true });
   writeFileSync(outFile, html, "utf-8");
   const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || "";
