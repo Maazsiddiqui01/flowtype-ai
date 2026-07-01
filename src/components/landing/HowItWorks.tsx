@@ -1,51 +1,53 @@
-import { Keyboard, Mic, FileText } from "lucide-react";
-import useInView from "@/hooks/use-in-view";
+import { Keyboard, Mic, ArrowDownToLine } from "lucide-react";
+import { Section, Eyebrow, Reveal } from "./primitives";
 
-const steps = [
-  { icon: Keyboard, label: "Press shortcut", description: "Hit your global hotkey from any app" },
-  { icon: Mic, label: "Speak naturally", description: "Whisper transcribes locally in real-time" },
-  { icon: FileText, label: "Get clean text", description: "AI cleans up and pastes to your cursor" },
+const STEPS = [
+  {
+    n: "1",
+    icon: Keyboard,
+    title: "Hold the hotkey",
+    body: "Press and hold your key from any app — your editor, browser, Slack, a terminal. No window to open, no button to find.",
+  },
+  {
+    n: "2",
+    icon: Mic,
+    title: "Speak",
+    body: "FlowType captures your voice and transcribes it on your machine with Faster-Whisper. Nothing is uploaded. Works with Wi-Fi off.",
+  },
+  {
+    n: "3",
+    icon: ArrowDownToLine,
+    title: "Release. It's typed.",
+    body: "Your words paste straight into wherever your cursor is — cleaned up by your own AI model if you want, or left exactly as spoken.",
+  },
 ];
 
-const HowItWorks = () => {
-  const { ref, inView } = useInView();
-
+export function HowItWorks() {
   return (
-    <section
-      id="how-it-works"
-      ref={ref}
-      className="bg-surface py-24 md:py-32"
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(16px)",
-        transition: "opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1)",
-      }}
-    >
-      <div className="container">
-        <div className="text-center">
-          <p className="text-[13px] font-semibold uppercase tracking-widest text-primary">How it works</p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Three steps. Zero friction.
-          </h2>
-        </div>
+    <Section id="how">
+      <Reveal className="text-center">
+        <Eyebrow>How it works</Eyebrow>
+        <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+          Dictate in three seconds flat.
+        </h2>
+      </Reveal>
 
-        <div className="mx-auto mt-16 grid max-w-3xl gap-8 md:grid-cols-3">
-          {steps.map((s, i) => (
-            <div key={s.label} className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                <s.icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
+      <div className="mt-14 grid gap-5 md:grid-cols-3">
+        {STEPS.map((s, i) => (
+          <Reveal key={s.n} delay={i * 90}>
+            <div className="card-edge relative h-full rounded-xl border border-hairline bg-surface p-6">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="grid h-9 w-9 place-items-center rounded-lg border border-amber/30 bg-amber/10 text-amber">
+                  <s.icon className="h-[18px] w-[18px]" />
+                </span>
+                <span className="font-mono text-sm text-ink-muted">0{s.n}</span>
               </div>
-              <span className="mb-1 block text-[12px] font-semibold uppercase tracking-widest text-primary">
-                Step {i + 1}
-              </span>
-              <h3 className="text-[15px] font-semibold text-foreground">{s.label}</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">{s.description}</p>
+              <h3 className="text-lg font-semibold text-ink">{s.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-body">{s.body}</p>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
-};
-
-export default HowItWorks;
+}

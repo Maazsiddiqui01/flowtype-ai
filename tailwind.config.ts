@@ -47,7 +47,23 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        surface: "hsl(var(--surface))",
+        // FlowType custom palette (Raycast-style surface ladder, no shadows)
+        canvas: "#07080a",
+        surface: {
+          DEFAULT: "#0d0d0d",
+          2: "#101111",
+          3: "#141414",
+        },
+        hairline: "#242728",
+        ink: {
+          DEFAULT: "#f4f4f6",
+          body: "#cdcdcd",
+          muted: "#9c9c9d",
+        },
+        amber: {
+          DEFAULT: "#f5a623",
+          soft: "#f6b84a",
+        },
         "surface-elevated": "hsl(var(--surface-elevated))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -65,6 +81,13 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
+      maxWidth: {
+        container: "1180px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -74,10 +97,35 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        // Hero waveform bars
+        wave: {
+          "0%, 100%": { transform: "scaleY(0.28)" },
+          "50%": { transform: "scaleY(1)" },
+        },
+        // Cursor blink
+        blink: { "0%, 49%": { opacity: "1" }, "50%, 100%": { opacity: "0" } },
+        // Soft pulse for the held-hotkey glow
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.5", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.04)" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        wave: "wave 1.1s ease-in-out infinite",
+        blink: "blink 1.1s step-end infinite",
+        "pulse-glow": "pulse-glow 2.4s ease-in-out infinite",
+        marquee: "marquee 28s linear infinite",
+        float: "float 6s ease-in-out infinite",
       },
     },
   },

@@ -1,63 +1,152 @@
-import { Download, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import useInView from "@/hooks/use-in-view";
+import { useEffect, useState } from "react";
+import { Lock, ShieldCheck } from "lucide-react";
+import { Reveal, DownloadCTA, GitHubGlyph } from "./primitives";
+import { GITHUB_URL } from "@/lib/site";
 
-const GITHUB_URL = "https://github.com/Maazsiddiqui01/FlowType";
+const RAW = "hey can you send me the notes from todays standup";
+const POLISHED = "Hey — can you send me the notes from today's standup?";
 
-const Hero = () => {
-  const { ref, inView } = useInView(0.1);
+export function Hero() {
+  return (
+    <div id="top" className="relative overflow-hidden pt-28 sm:pt-36">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[560px] glow-amber" />
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(60%_50%_at_50%_0%,black,transparent)]" />
+
+      <div className="relative mx-auto max-w-container px-6 text-center">
+        <Reveal>
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface/60 px-3.5 py-1.5 text-[13px] text-ink-body transition-colors hover:border-white/15 hover:text-ink"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
+            Free &amp; open source — read the code
+            <span aria-hidden>→</span>
+          </a>
+        </Reveal>
+
+        <Reveal delay={60}>
+          <h1 className="mx-auto max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+            <span className="text-gradient">Speak. It types.</span>
+            <br />
+            Your voice never leaves your machine.
+          </h1>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-[17px] leading-relaxed text-ink-body">
+            Free, open-source dictation for every app you use. Hold a hotkey, speak, and FlowType
+            transcribes on-device with Whisper — then pastes into whatever you're in. No
+            subscription, no account, no upload.
+          </p>
+        </Reveal>
+
+        <Reveal delay={180}>
+          <div className="mt-9 flex flex-col items-center gap-5">
+            <DownloadCTA />
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-ink-muted transition-colors hover:text-ink-body"
+            >
+              <GitHubGlyph className="h-4 w-4" />
+              View the source on GitHub →
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal delay={240}>
+          <p className="mt-6 text-[13px] text-ink-muted">
+            Free &amp; open-source · No account · 100% on-device · macOS beta available
+          </p>
+        </Reveal>
+
+        <Reveal delay={300} className="mt-14 sm:mt-16">
+          <HeroDemo />
+        </Reveal>
+      </div>
+    </div>
+  );
+}
+
+function HeroDemo() {
+  const [text, setText] = useState("");
+  const [phase, setPhase] = useState<"typing" | "polished">("typing");
+
+  useEffect(() => {
+    const timers: number[] = [];
+    let i = 0;
+    const start = () => {
+      setPhase("typing");
+      setText("");
+      i = 0;
+      const tick = () => {
+        i += 1;
+        setText(RAW.slice(0, i));
+        if (i < RAW.length) timers.push(window.setTimeout(tick, 42 + Math.random() * 40));
+        else
+          timers.push(
+            window.setTimeout(() => {
+              setPhase("polished");
+              setText(POLISHED);
+              timers.push(window.setTimeout(start, 2800));
+            }, 550),
+          );
+      };
+      timers.push(window.setTimeout(tick, 500));
+    };
+    start();
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
   return (
-    <section ref={ref} className="pb-24 pt-20 md:pb-32 md:pt-28 lg:pb-40 lg:pt-36">
-      <div
-        className="container"
-        style={{
-          opacity: inView ? 1 : 0,
-          transform: inView ? "translateY(0)" : "translateY(16px)",
-          transition: "opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1)",
-        }}
-      >
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1 text-[13px] text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Open source · Local-first · Windows
+    <div className="mx-auto max-w-2xl">
+      <div className="card-edge overflow-hidden rounded-2xl border border-hairline bg-surface-2 text-left">
+        <div className="flex items-center gap-1.5 border-b border-hairline px-4 py-3">
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="ml-3 text-xs text-ink-muted">New message</span>
+          <span className="ml-auto inline-flex items-center gap-1.5 rounded-md border border-hairline bg-surface px-2 py-1 text-[11px] text-ink-muted">
+            <Lock className="h-3 w-3 text-amber" /> on-device · no upload
+          </span>
+        </div>
+
+        <div className="min-h-[132px] px-5 py-6">
+          <p className="text-[17px] leading-relaxed text-ink">
+            {text}
+            <span className="ml-0.5 inline-block h-5 w-[2px] translate-y-1 animate-blink bg-amber align-middle" />
           </p>
+          {phase === "polished" && (
+            <span className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-amber/10 px-2 py-1 text-[11px] font-medium text-amber">
+              <ShieldCheck className="h-3 w-3" /> cleaned up locally
+            </span>
+          )}
+        </div>
 
-          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Dictate. Clean. Paste.
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-md text-[16px] leading-relaxed text-muted-foreground">
-            Press a shortcut, speak naturally, and get polished text — powered by local Whisper and AI cleanup.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button
-              size="lg"
-              className="h-12 rounded-full px-8 text-[14px] font-medium"
-              asChild
-            >
-              <a href={GITHUB_URL + "/releases"} target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 h-4 w-4" />
-                Download for Windows
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-12 rounded-full px-8 text-[14px] font-medium text-foreground"
-              asChild
-            >
-              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" />
-                View on GitHub
-              </a>
-            </Button>
+        <div className="flex items-center gap-4 border-t border-hairline bg-surface px-5 py-3.5">
+          <div className="relative">
+            <span className="absolute -inset-1 rounded-lg bg-amber/25 blur-md animate-pulse-glow" />
+            <kbd className="relative rounded-lg border border-amber/40 bg-amber/10 px-2.5 py-1.5 font-mono text-xs text-amber">
+              Ctrl ⇧ Space
+            </kbd>
           </div>
+          <div className="flex h-8 items-center gap-[3px]">
+            {Array.from({ length: 28 }).map((_, i) => (
+              <span
+                key={i}
+                className="w-[3px] origin-center rounded-full bg-amber/80 animate-wave"
+                style={{ height: "100%", animationDelay: `${(i % 10) * 90}ms` }}
+              />
+            ))}
+          </div>
+          <span className="ml-auto text-xs text-ink-muted">
+            {phase === "typing" ? "Listening…" : "Ready"}
+          </span>
         </div>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default Hero;
+}

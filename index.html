@@ -3,23 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FlowType - Local AI Dictation for Windows</title>
-    <meta name="description" content="Dictate, clean, and paste without babysitting the app. Local Whisper transcription with AI-powered cleanup. Private, fast, and open source.">
+    <meta name="theme-color" content="#07080a" />
+
+    <title>FlowType — Local Voice to Text Dictation for Windows</title>
+    <meta
+      name="description"
+      content="Hold a hotkey, speak, and FlowType types it anywhere. On-device Whisper transcription — your audio never leaves your PC. Free, private, open source, bring your own AI."
+    />
     <meta name="author" content="FlowType" />
-    <link rel="canonical" href="https://flowtype.dev" />
+    <link rel="canonical" href="https://flowtype.dev/" />
 
-    
-    
+    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5e45bdcb-7faa-4e62-988a-bbde17f6e20c/id-preview-0fdba1f8--8a10dde9-17c0-4067-abe4-57df2281c66d.lovable.app-1775660971857.png">
-
+    <meta property="og:site_name" content="FlowType" />
+    <meta property="og:url" content="https://flowtype.dev/" />
+    <meta property="og:title" content="FlowType — Free, local voice-to-text for Windows & Mac" />
+    <meta
+      property="og:description"
+      content="Speak, and it types — anywhere. Transcribed on your own machine with Whisper. No subscription, no account, no upload. The open-source Wispr Flow alternative."
+    />
+    <meta property="og:image" content="https://flowtype.dev/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5e45bdcb-7faa-4e62-988a-bbde17f6e20c/id-preview-0fdba1f8--8a10dde9-17c0-4067-abe4-57df2281c66d.lovable.app-1775660971857.png">
-    <meta property="og:title" content="FlowType - Local AI Dictation for Windows">
-  <meta name="twitter:title" content="FlowType - Local AI Dictation for Windows">
-  <meta property="og:description" content="Dictate, clean, and paste without babysitting the app. Local Whisper transcription with AI-powered cleanup. Private, fast, and open source.">
-  <meta name="twitter:description" content="Dictate, clean, and paste without babysitting the app. Local Whisper transcription with AI-powered cleanup. Private, fast, and open source.">
-</head>
+    <meta name="twitter:title" content="FlowType — Free, local voice-to-text for Windows & Mac" />
+    <meta
+      name="twitter:description"
+      content="Speak, and it types — anywhere. On-device Whisper transcription. Free, private, open source. The Wispr Flow alternative that keeps your voice on your device."
+    />
+    <meta name="twitter:image" content="https://flowtype.dev/og.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FlowType",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows",
+        "description": "Free, open-source, local-first voice-to-text dictation. Hold a hotkey, speak, and FlowType transcribes on-device with Whisper and pastes into any app. No subscription, no account, no upload.",
+        "url": "https://flowtype.dev/",
+        "downloadUrl": "https://github.com/Maazsiddiqui01/FlowType/releases",
+        "softwareVersion": "0.1.13",
+        "license": "https://github.com/Maazsiddiqui01/FlowType/blob/main/LICENSE",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "FlowType" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FlowType",
+        "url": "https://flowtype.dev/",
+        "sameAs": ["https://github.com/Maazsiddiqui01/FlowType"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is FlowType free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — completely. FlowType is free and open source. There's no subscription, no word or minute cap, no account, and no credit card. Optional AI cleanup uses an API key you bring, billed by your provider at their rates — never through us." } },
+          { "@type": "Question", "name": "Does my audio leave my computer?", "acceptedAnswer": { "@type": "Answer", "text": "No. FlowType transcribes your voice on-device with Faster-Whisper. Audio is never uploaded for transcription, so there's nothing to leak or log. It works fully offline." } },
+          { "@type": "Question", "name": "Is FlowType a good Wispr Flow alternative?", "acceptedAnswer": { "@type": "Answer", "text": "It does the same 'dictate into any app' job as Wispr Flow, but locally, free, open-source, and with no account or word cap. If privacy, cost, and ownership matter more to you than cloud features, FlowType is the stronger fit." } },
+          { "@type": "Question", "name": "Does FlowType work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because transcription runs on your own machine, FlowType works with no internet connection. Optional AI cleanup is the only feature that needs a connection, and only if you enable it." } },
+          { "@type": "Question", "name": "Does FlowType work on Windows?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — Windows is the primary, shipped platform. FlowType runs Faster-Whisper locally (CPU int8, with CUDA acceleration when available) and pastes into any app." } },
+          { "@type": "Question", "name": "Does FlowType work on Mac?", "acceptedAnswer": { "@type": "Answer", "text": "There's a macOS beta you can download today (default hotkey: Right-Option). It's actively improving — try it and file issues. For production-critical use, know it's still in beta." } },
+          { "@type": "Question", "name": "Can I bring my own AI model?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Connect your own OpenRouter, OpenAI, or Anthropic key to clean up transcripts and pick any model — you're never locked to one provider, and you pay only your own usage. You can also skip AI entirely and keep the raw transcript." } },
+          { "@type": "Question", "name": "Is it really private if it's open source?", "acceptedAnswer": { "@type": "Answer", "text": "That's why it's private in a way you can trust. Open source means the 'your audio stays local' claim is verifiable — anyone can audit the code. Your API keys are encrypted at rest, and FlowType never proxies your requests." } }
+        ]
+      }
+    </script>
+  </head>
 
   <body>
     <div id="root"></div>
