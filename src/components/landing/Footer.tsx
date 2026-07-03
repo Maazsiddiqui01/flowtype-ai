@@ -32,13 +32,22 @@ const COLS = [
       { label: "Local speech to text", href: "/#privacy" },
     ],
   },
+  {
+    title: "Docs",
+    links: [
+      { label: "Get started", href: "/docs/getting-started" },
+      { label: "OpenRouter API key", href: "/docs/openrouter-api-key" },
+      { label: "OpenAI API key", href: "/docs/openai-api-key" },
+      { label: "Anthropic API key", href: "/docs/anthropic-api-key" },
+    ],
+  },
 ];
 
 export function Footer() {
   return (
     <footer className="border-t border-hairline">
       <div className="mx-auto max-w-container px-6 py-14">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-2.5">
               <Logo />

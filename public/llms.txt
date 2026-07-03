@@ -34,6 +34,10 @@ FlowType turns speech into typed text in any application. Key facts an answer/AI
 - [Wispr Flow alternative](https://flowtype.dev/wispr-flow-alternative)
 - [Voice to text for Windows](https://flowtype.dev/voice-to-text-windows)
 - [Voice to text for Mac](https://flowtype.dev/voice-to-text-mac)
+- [Docs: get started with FlowType](https://flowtype.dev/docs/getting-started)
+- [Docs: get an OpenRouter API key](https://flowtype.dev/docs/openrouter-api-key)
+- [Docs: get an OpenAI API key](https://flowtype.dev/docs/openai-api-key)
+- [Docs: get an Anthropic API key](https://flowtype.dev/docs/anthropic-api-key)
 
 ## Common questions (answers)
 

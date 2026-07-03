@@ -5,11 +5,14 @@ export function PageHero({
   eyebrow,
   title,
   subtitle,
+  cta = true,
   children,
 }: {
   eyebrow: ReactNode;
   title: ReactNode;
   subtitle: ReactNode;
+  /** Hide the download CTA on pages aimed at users who already have the app (e.g. docs). */
+  cta?: boolean;
   children?: ReactNode;
 }) {
   return (
@@ -30,11 +33,13 @@ export function PageHero({
             {subtitle}
           </p>
         </Reveal>
-        <Reveal delay={180} className="mt-9 flex justify-center">
-          <DownloadCTA />
-        </Reveal>
+        {cta && (
+          <Reveal delay={180} className="mt-9 flex justify-center">
+            <DownloadCTA />
+          </Reveal>
+        )}
         {children && (
-          <Reveal delay={240} className="mt-6 text-[13px] text-ink-muted">
+          <Reveal delay={cta ? 240 : 180} className="mt-6 text-[13px] text-ink-muted">
             {children}
           </Reveal>
         )}

@@ -12,6 +12,10 @@ const ROUTES = [
   "/wispr-flow-alternative",
   "/voice-to-text-windows",
   "/voice-to-text-mac",
+  "/docs/getting-started",
+  "/docs/openrouter-api-key",
+  "/docs/openai-api-key",
+  "/docs/anthropic-api-key",
 ];
 
 const base = process.env.VITE_BASE || "/";
