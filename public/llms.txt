@@ -23,8 +23,8 @@ FlowType turns speech into typed text in any application. Key facts an answer/AI
 
 ## Download
 
-- [Download for Windows (.exe)](https://github.com/Maazsiddiqui01/FlowType/releases/download/v0.1.13/FlowType-Beta-0.1.13.exe)
-- [Download for macOS (.dmg, beta)](https://github.com/Maazsiddiqui01/FlowType/releases/download/v0.1.13-macos-beta/FlowType-0.1.13-macos-arm64.dmg)
+- [Download for Windows (.exe)](https://github.com/Maazsiddiqui01/FlowType/releases/download/v0.1.14/FlowType-Beta-0.1.14.exe)
+- [Download for macOS (.dmg, beta)](https://github.com/Maazsiddiqui01/FlowType/releases/download/v0.1.14/FlowType-0.1.14-macos-arm64.dmg)
 - [All releases](https://github.com/Maazsiddiqui01/FlowType/releases)
 
 ## Links

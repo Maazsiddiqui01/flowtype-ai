@@ -51,7 +51,7 @@ export const softwareAppLd = (os = "Windows, macOS") => ({
     "Free, open-source, local-first voice-to-text dictation. Hold a hotkey, speak, and FlowType transcribes on-device with Whisper and pastes into any app. No subscription, no account, no upload.",
   url: SITE + "/",
   downloadUrl: GH + "/releases",
-  softwareVersion: "0.1.13",
+  softwareVersion: "0.1.14",
   license: GH + "/blob/main/LICENSE",
   image: OG_IMAGE,
   isAccessibleForFree: true,
