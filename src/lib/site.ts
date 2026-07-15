@@ -11,13 +11,13 @@ export const LICENSE_URL = `${GITHUB_URL}/blob/main/LICENSE`;
 export const DOWNLOAD = {
   windows: {
     label: "Windows",
-    url: `${GITHUB_URL}/releases/download/v0.1.14/FlowType-Beta-0.1.14.exe`,
+    url: `${GITHUB_URL}/releases/download/v0.1.15/FlowType-Beta-0.1.15.exe`,
     ext: ".exe",
     status: "shipped" as const,
   },
   mac: {
     label: "macOS",
-    url: `${GITHUB_URL}/releases/download/v0.1.14/FlowType-0.1.14-macos-arm64.dmg`,
+    url: `${GITHUB_URL}/releases/download/v0.1.15/FlowType-0.1.15-macos-arm64.dmg`,
     ext: ".dmg",
     status: "beta" as const,
   },
